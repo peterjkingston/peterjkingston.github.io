@@ -24,7 +24,7 @@
 
     <header>
       <div class="container">
-        <h1>FolderSync</h1>
+        <h1>FolderSync<img src="https://peterjkingston.com/favicon-32x32.png" alt="Peter J Kingston"></h1>
         <h2>Folder Syncronization windows service. Listens to a directory and copies the changes to another directory.</h2>
 
         <section id="downloads">
@@ -36,8 +36,6 @@
 
     <div class="container">
       <section id="main_content">
-        <h1 id="foldersync-">FolderSync <img src="https://peterjkingston.com/favicon-32x32.png" alt="Peter J Kingston"></h1>
-<p>Folder Syncronization Windows Service app. Listens to a directory and copies the changes to another directory.</p>
 
 <h2 id="installation">Installation</h2>
 <ul>
@@ -47,7 +45,7 @@
   <li>If successful, an install message will run ending in “FolderSync service has started.”</li>
 </ul>
 
-<h2 id="known-issues-">Known Issues <img src="https://github.com/peterjkingston/FolderSync/blob/master/.github/action-issueTracker/file-plus.svg" alt="Issues"></h2>
+<h2 id="known-issues-">Known Issues <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-plus"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg></h2>
 <p><img src="https://github.com/peterjkingston/FolderSync/workflows/IssueTracker/badge.svg" alt="IssueTracker"></p>
 
 <script>
