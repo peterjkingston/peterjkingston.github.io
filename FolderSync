@@ -1,0 +1,73 @@
+<html lang="en-US"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/FolderSync/assets/css/style.css?v=fd71c38233234f58e523688053a1bccb70a34e2a">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>FolderSync | Folder Syncronization windows service. Listens to a directory and copies the changes to another directory.</title>
+<meta name="generator" content="Jekyll v3.8.7">
+<meta property="og:title" content="FolderSync">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="Folder Syncronization windows service. Listens to a directory and copies the changes to another directory.">
+<meta property="og:description" content="Folder Syncronization windows service. Listens to a directory and copies the changes to another directory.">
+<link rel="canonical" href="https://peterjkingston.github.io/FolderSync/">
+<meta property="og:url" content="https://peterjkingston.github.io/FolderSync/">
+<meta property="og:site_name" content="FolderSync">
+<script type="application/ld+json">
+{"@type":"WebSite","headline":"FolderSync","url":"https://peterjkingston.github.io/FolderSync/","name":"FolderSync","description":"Folder Syncronization windows service. Listens to a directory and copies the changes to another directory.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>FolderSync</h1>
+        <h2>Folder Syncronization windows service. Listens to a directory and copies the changes to another directory.</h2>
+
+        <section id="downloads">
+          
+          <a href="https://github.com/peterjkingston/FolderSync" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1 id="foldersync-">FolderSync <img src="https://peterjkingston.com/favicon-32x32.png" alt="Peter J Kingston"></h1>
+<p>Folder Syncronization Windows Service app. Listens to a directory and copies the changes to another directory.</p>
+
+<h2 id="installation">Installation</h2>
+<ul>
+  <li>Build with VS2019</li>
+  <li>From a shell app (Command Prompt or other), navigate to the coorisponding bin folder, or whereever you’ve put the build files.</li>
+  <li>Enter the command “.\FolderSyncConsole.exe install start”</li>
+  <li>If successful, an install message will run ending in “FolderSync service has started.”</li>
+</ul>
+
+<h2 id="known-issues-">Known Issues <img src="https://github.com/peterjkingston/FolderSync/blob/master/.github/action-issueTracker/file-plus.svg" alt="Issues"></h2>
+<p><img src="https://github.com/peterjkingston/FolderSync/workflows/IssueTracker/badge.svg" alt="IssueTracker"></p>
+
+<script>
+  let requestURL = 'https://api.github.com/repos/peterjkingston/FolderSync/contents/Issues.md'; 
+  let request = new XMLHttpRequest(); 
+  request.open('GET', requestURL); 
+  request.responseType = 'json'; 
+  request.send(); 
+
+  request.onload = function(){ 
+    const jsonObj = request.response; 
+    var encoding = jsonObj.encoding; 
+    var type = jsonObj.type; 
+    var content = jsonObj.content; 
+    var c = document.createElement('div'); 
+    c.innerHTML = atob(content); 
+    document.body.appendChild(c);
+    }
+</script>
+
+
+      </section>
+ </div>
