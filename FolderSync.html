@@ -40,17 +40,14 @@
             </div>
         </nav>
     </header>
-    <header>
       <div class="container">
-        <h1>FolderSync<img src="/favicon-32x32.png" alt="Peter J Kingston"></h1>
-        <h2>Folder Syncronization windows service. Listens to a directory and copies the changes to another directory.</h2>
+        <h1>FolderSync</h1>
+        <h5>Folder Syncronization windows service. Listens to a directory and copies the changes to another directory.</h5>
 
         <section id="downloads">
-          
           <a href="https://github.com/peterjkingston/FolderSync" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
         </section>
       </div>
-    </header>
 
     <div class="container">
       <section id="main_content">
@@ -104,6 +101,7 @@
         </div>
     </footer>
 <script>
+  const readingPane = document.querySelector("main_content");
   let requestURL = 'https://api.github.com/repos/peterjkingston/FolderSync/contents/Issues.md'; 
   let request = new XMLHttpRequest(); 
   request.open('GET', requestURL); 
@@ -117,7 +115,7 @@
     var content = jsonObj.content; 
     var c = document.createElement('div'); 
     c.innerHTML = atob(content); 
-    document.body.appendChild(c);
+    readingPane.appendChild(c);
     }
 </script>
 
