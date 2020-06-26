@@ -1,0 +1,178 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+.navbar{
+    background:linear-gradient(#00085e, #0344a3 ,#0366d6);
+}
+
+.navbar-nav > li {
+    padding: 0.5rem 0.5rem;
+    display: inline-block;
+    position: relative;
+    z-index: 100;
+}
+
+.navbar-nav > li:before {
+    background: #00085e;
+    transition: opacity 0.5s;
+    opacity: 0;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -100;
+}
+
+.navbar-nav > li:hover:before {
+    opacity: 1;
+}
+
+.navbar-nav > .bdr-left {
+    border-left: 1px solid #00085e;
+}
+
+.navbar-nav > .bdr-right{
+    border-right: 1px solid #00085e;
+}
+
+.fs-75{
+    font-size:0.75rem !important;
+}
+
+.border-transparent{
+    border-color:transparent !important;
+}
+
+.dot-icon-purple {
+    background-image: url("data:image/svg+xml, %3csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' height='1rem' width='1rem' viewBox='0 0 12 12'%3e %3cdefs%3e %3cradialGradient id='radial' cx='50%26' cy='50%26' fx='75%26' fy='25%26'%3e %3cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3e %3cstop offset='0%26' stop-color='#fff'%3e%3d/stop%3e %3cstop offset='50%26' stop-color='#c0c'%3e%3d/stop%3e %3cstop offset='100%26' stop-color='#000'%3e%3c/stop%3e %3c/radialGradient%3e %3c/defs%3e %3ccircle cx='6' cy='6' r='6' fill='url(#radial)' stroke='white'%3e%3c/circle%3e %3c/svg%3e%3e ");
+    content:'';
+}
+
+.footer a{
+    margin-left:5px;
+    margin-right:5px;
+}
+
+.link-icon > svg path {
+    transition: fill 0.5s;
+    fill: grey;
+}
+
+footer a:hover{
+    text-decoration:none;
+}
+
+.github svg:hover path{
+    transition: fill 0.5s; 
+    fill: black;
+}
+
+.stackoverflow svg:hover .stack {
+    transition: fill 0.5s;
+    fill: #f48024;
+}
+
+.linkedin svg:hover path {
+    transition: fill 0.5s;
+    fill: #0077B5;
+}
+
+.bg-so-red{
+    background-color:rgba(255,0,0,0.5);
+}
+
+.bg-so-green{
+    background-color:rgba(0,255,0,0.5);
+}
+
+.bg-so-blue{
+    background-color:rgba(125,125,255,0.5);
+}
+
+.bg-so-orange{
+    background-color:rgba(255,175,0,0.5);
+}
+
+.ml-1{
+    margin-left:1rem;
+}
+
+.mr-1{
+    margin-right:1rem;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+    background-position: bottom right;
+    background-image: url("/images/Sunberry2.png");
+    background-repeat: no-repeat;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+  background-color:transparent !important;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
