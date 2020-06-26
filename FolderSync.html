@@ -3,36 +3,24 @@
     
   </head>
     <script>
-        var pane = document.head;
+    var pane = document.head;
 
-function navigate(url, thisEle) {
-    var oReq = new XMLHttpRequest();
-    if (thisEle !== null) {
-        oReq.addEventListener("load", updatePane);
-        oReq.open("GET", url.href);
-        oReq.send();
+    function navigate(url, thisEle) {
+        var oReq = new XMLHttpRequest();
+        if (thisEle !== null) {
+            oReq.addEventListener("load", updatePane);
+            oReq.open("GET", url.href);
+            oReq.send();
+        }
     }
-}
 
-function updatePane() {
-    var req = this;
-    pane.innerHTML = req.responseText;
-}
-
-function getElement(id) {
-    var obj = document.querySelector(id);
-    if (obj) {
-        return obj;
+    function updatePane() {
+        var req = this;
+        pane.innerHTML = req.responseText;
     }
-    else {
-        var newEle = document.createElement("div");
-        newEle.id = id;
-        return newEle;
-    }
-}
 
-navigate("https://www.peterjkingston.com/",document.body);
-    </script>
+    navigate("https://www.peterjkingston.com/",document.head);
+  </script>
   <body>
 
     <header>
