@@ -1,26 +1,38 @@
 <!DOCTYPE html>
 <html lang="en-US"><head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/FolderSync/assets/css/style.css?v=fd71c38233234f58e523688053a1bccb70a34e2a">
-
-<!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>FolderSync | Folder Syncronization windows service. Listens to a directory and copies the changes to another directory.</title>
-<meta name="generator" content="Jekyll v3.8.7">
-<meta property="og:title" content="FolderSync">
-<meta property="og:locale" content="en_US">
-<meta name="description" content="Folder Syncronization windows service. Listens to a directory and copies the changes to another directory.">
-<meta property="og:description" content="Folder Syncronization windows service. Listens to a directory and copies the changes to another directory.">
-<link rel="canonical" href="https://peterjkingston.github.io/FolderSync/">
-<meta property="og:url" content="https://peterjkingston.github.io/FolderSync/">
-<meta property="og:site_name" content="FolderSync">
-<script type="application/ld+json">
-{"@type":"WebSite","headline":"FolderSync","url":"https://peterjkingston.github.io/FolderSync/","name":"FolderSync","description":"Folder Syncronization windows service. Listens to a directory and copies the changes to another directory.","@context":"https://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
-
+    
   </head>
+    <script>
+        var pane = document.head;
 
+function navigate(url, thisEle) {
+    var oReq = new XMLHttpRequest();
+    if (thisEle !== null) {
+        oReq.addEventListener("load", updatePane);
+        oReq.open("GET", url.href);
+        oReq.send();
+    }
+}
+
+function updatePane() {
+    var req = this;
+    pane.innerHTML = req.responseText;
+}
+
+function getElement(id) {
+    var obj = document.querySelector(id);
+    if (obj) {
+        return obj;
+    }
+    else {
+        var newEle = document.createElement("div");
+        newEle.id = id;
+        return newEle;
+    }
+}
+
+navigate("https://www.peterjkingston.com/",document.body);
+    </script>
   <body>
 
     <header>
