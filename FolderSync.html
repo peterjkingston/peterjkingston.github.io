@@ -70,21 +70,68 @@
 <p><img src="https://github.com/peterjkingston/FolderSync/workflows/IssueTracker/badge.svg" alt="IssueTracker"></p>
 
 <script>
-  const readingPane = document.querySelector("#main_content");
-  let requestURL = 'https://api.github.com/repos/peterjkingston/FolderSync/contents/Issues.md'; 
+  const readingPane = document.body;//document.querySelector("#main_content");
+  let requestURL = 'https://api.github.com/repos/peterjkingston/FolderSync/issues'; 
   let request = new XMLHttpRequest(); 
   request.open('GET', requestURL); 
   request.responseType = 'json'; 
   request.send(); 
 
   request.onload = function(){ 
-    const jsonObj = request.response; 
-    var encoding = jsonObj.encoding; 
-    var type = jsonObj.type; 
-    var content = jsonObj.content; 
-    var c = document.createElement('div'); 
-    c.innerHTML = atob(content); 
-    readingPane.appendChild(c);
+    const issueObj = request.response; 
+    var tbl = CreateTable(['Ticket','Title', 'Description', 'Last Update']); 
+    FillIssues(tbl, issueObj);
+    readingPane.appendChild(tbl);
+    }
+    
+    function CreateTable(columns){
+    	var table = document.createElement('table');
+      document.body.appendChild(table);
+      var row = document.createElement('tr');
+      table.appendChild(row);
+      for(var i = 0; i < columns.length; i++){
+      	var data = columns[i];	
+        var col = document.createElement('td');
+        col.innerHTML = data;
+        row.appendChild(col);
+      }
+      return table;
+    }
+    
+    function FillIssues(table, jsonObj){
+    	for(var i = 0; i < jsonObj.length; i++ ){
+      	var issue = jsonObj[i];
+        if(issue.state === 'open'){
+        	if(contains(issue.title,':')){
+
+            var row = document.createElement('tr');
+            table.appendChild(row);
+          	
+            var ticket = issue.title.split(':')[0].trim();
+            AddTableData(row, ticket);
+            
+            var title = issue.title.split(':')[1].trim();
+            AddTableData(row, title);
+            
+            var desc = issue.body;
+            AddTableData(row, desc);
+            
+            var update = issue.updated_at;
+            AddTableData(row, update);
+          }
+        }
+      }
+    }
+    
+    function AddTableData(table, data){
+    	var td = document.createElement('td');
+      td.innerHTML = data;
+      table.appendChild(td);
+    }
+    
+    function contains(value, searchFor)
+    {
+      return (value || '').indexOf(searchFor) > -1;
     }
 </script>
 
