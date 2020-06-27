@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US"><head>
     <head>
+    <style>td{border:black solid 1px; background:rgb(255,255,255,0.8); padding: 0.5em 1em 0.5em 1em}table{box-shadow: 2em 2em rgb(50, 50, 50, 0.5)} #column-headers{background:rgb(50,200,50,0.8); font-weight: bold;}</style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FolderSync</title>
@@ -82,6 +83,11 @@
     var tbl = CreateTable(['Ticket','Title', 'Description', 'Last Update']); 
     FillIssues(tbl, issueObj);
     readingPane.appendChild(tbl);
+    
+    //DEBUG
+    var json = document.createElement('p');
+    document.body.appendChild(json);
+    json.innerHTML = JSON.stringify(issueObj);
     }
     
     function CreateTable(columns){
@@ -89,6 +95,7 @@
       document.body.appendChild(table);
       var row = document.createElement('tr');
       table.appendChild(row);
+      row.id = "column-headers";
       for(var i = 0; i < columns.length; i++){
       	var data = columns[i];	
         var col = document.createElement('td');
@@ -125,13 +132,15 @@
     
     function AddTableData(table, data){
     	var td = document.createElement('td');
-      td.innerHTML = data;
+      var p = document.createElement('p');
+      p.innerHTML = data.replace(/\n/g, "<br />");
       table.appendChild(td);
+      td.appendChild(p);
     }
     
-    function contains(value, searchFor)
+    function contains(inValue, searchFor)
     {
-      return (value || '').indexOf(searchFor) > -1;
+      return (inValue || '').indexOf(searchFor) > -1;
     }
 </script>
 
