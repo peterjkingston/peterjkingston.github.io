@@ -83,11 +83,6 @@
     var tbl = CreateTable(['Ticket','Title', 'Description', 'Last Update']); 
     FillIssues(tbl, issueObj);
     readingPane.appendChild(tbl);
-    
-    //DEBUG
-    var json = document.createElement('p');
-    document.body.appendChild(json);
-    json.innerHTML = JSON.stringify(issueObj);
     }
     
     function CreateTable(columns){
