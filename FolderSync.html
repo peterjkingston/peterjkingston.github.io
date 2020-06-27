@@ -115,7 +115,7 @@
             table.appendChild(row);
           	
             var ticket = issue.title.split(':')[0].trim();
-            AddTableData(row, ticket);
+            AddTableDataAsLink(row, ticket, issue.html_url);
             
             var title = issue.title.split(':')[1].trim();
             AddTableData(row, title);
@@ -134,6 +134,16 @@
     	var td = document.createElement('td');
       var p = document.createElement('p');
       p.innerHTML = data.replace(/\n/g, "<br />");
+      table.appendChild(td);
+      td.appendChild(p);
+    }
+    
+    function AddTableDataAsLink(table, data, destination)
+ 		{
+    	var td = document.createElement('td');
+      var p = document.createElement('a');
+      p.innerHTML = data.replace(/\n/g, "<br />");
+      p.href = destination;
       table.appendChild(td);
       td.appendChild(p);
     }
