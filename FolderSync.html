@@ -94,7 +94,34 @@
   request.open('GET', requestURL); 
   request.responseType = 'json'; 
   request.send(); 
+    
+  const techList = document.querySelector("#tech-list");
+  let requestURL = 'https://api.github.com/repos/peterjkingston/peterjkingston.github.io/contents/navigate.json'; 
+  let request2 = new XMLHttpRequest(); 
+  request2.open('GET', requestURL); 
+  request2.responseType = 'json'; 
+  request2.send(); 
 
+  request2.onload = function()
+  	{ 
+      const jsonObj = request.response; 
+      var strJson = atob(jsonObj.content);
+      var jsonPages = JSON.parse(strJson);
+    	for(var page = 0; page < jsonPages.length; page++)
+      {
+      	AddPage(techList, jsonPages[page]);
+      }
+    }
+    
+    function AddPage(addToEle, jsonPage)
+    {
+    	var pageEle = document.createElement('a');
+      pageEle.classList.add("dropdown-item");
+      pageEle.href = jsonPage.destination_url;
+      pageEle.innerHTML = jsonPage.title;
+      addToEle.appendChild(pageEle);
+    }  
+    
   request.onload = function(){ 
     const issueObj = request.response; 
     var tbl = CreateTable(['Ticket','Title', 'Description', 'Last Update']); 
