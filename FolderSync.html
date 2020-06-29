@@ -96,15 +96,15 @@
   request.send(); 
     
   const techList = document.querySelector("#tech-list");
-  let requestURL = 'https://api.github.com/repos/peterjkingston/peterjkingston.github.io/contents/navigate.json'; 
+  let requestURL2 = 'https://api.github.com/repos/peterjkingston/peterjkingston.github.io/contents/navigate.json'; 
   let request2 = new XMLHttpRequest(); 
-  request2.open('GET', requestURL); 
+  request2.open('GET', requestURL2); 
   request2.responseType = 'json'; 
   request2.send(); 
 
   request2.onload = function()
   	{ 
-      const jsonObj = request.response; 
+      const jsonObj = request2.response; 
       var strJson = atob(jsonObj.content);
       var jsonPages = JSON.parse(strJson);
     	for(var page = 0; page < jsonPages.length; page++)
