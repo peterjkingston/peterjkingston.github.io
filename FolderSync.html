@@ -92,7 +92,7 @@
     let requestURL = "https://raw.githubusercontent.com/peterjkingston/peterjkingston.github.io/master/FolderSync-Raw.html";
     let request = new XMLHttpRequest();
     request.open('GET', requestURL);
-    request.responseType = 'json';
+    request.responseType = 'text/html';
     request.send();
 
     request.onload = function(){
