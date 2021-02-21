@@ -71,7 +71,9 @@ border-top-width: 10‒;"></span>View on GitHub</a>
             <line x1="12" y1="15" x2="12" y2="23"></line>
             <path d="M20 16.58A5 5 0 0 0 18 7h-1.26A8 8 0 1 0 4 15.25"></path></svg>
         </h2>
+        <div id="github_table_container">
 
+        </div>
         <script id="fetch_github_tables">
             const readingPane = document.querySelector("#main_content");
             let requestURL = 'https://api.github.com/repos/peterjkingston/FolderSync/issues';
@@ -113,7 +115,8 @@ border-top-width: 10‒;"></span>View on GitHub</a>
 
             function CreateTable(columns) {
                 var table = document.createElement('table');
-                document.body.appendChild(table);
+                let tblContainer = document.querySelector("#github_table_container");
+                tblContainer.appendChild(table);
                 var row = document.createElement('tr');
                 table.appendChild(row);
                 row.id = "column-headers";
