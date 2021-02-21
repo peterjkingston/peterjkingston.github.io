@@ -96,6 +96,8 @@
 
     request.onload = function(){
       readingPane.innerHTML = request.responseText;
+      let scriptEle = document.querySelector("fetch_github_tables");
+      eval(scriptEle.innerHTML);
     }
 
   </script>
