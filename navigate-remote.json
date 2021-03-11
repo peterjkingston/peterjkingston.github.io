@@ -1,0 +1,17 @@
+[
+  {
+    "title" : "FolderSync",
+    "destination_url":"https://peterjkingston.github.io/FolderSync-Raw.html",
+    "resource_url": "https://raw.githubusercontent.com/peterjkingston/peterjkingston.github.io/master/FolderSync-Raw.html"
+  },
+  {
+    "title": "QuickEncrypt",
+    "destination_url":"https://peterjkingston.github.io/QuickEncrypt-Raw.html",
+    "resource_url": "https://raw.githubusercontent.com/peterjkingston/peterjkingston.github.io/master/QuickEncrypt-Raw.html"
+  },
+  {
+  "title": "CSV to JSON",
+  "destination_url":"https://peterjkingston.github.io/CSV_to_JSON-Raw.html",
+  "resource_url": "https://raw.githubusercontent.com/peterjkingston/peterjkingston.github.io/master/CSV_to_JSON-Raw.html"
+  }
+]

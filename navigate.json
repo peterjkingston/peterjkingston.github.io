@@ -8,5 +8,10 @@
       "title": "QuickEncrypt",
       "destination_url":"https://peterjkingston.github.io/QuickEncrypt.html",
       "resource_url": "https://raw.githubusercontent.com/peterjkingston/peterjkingston.github.io/master/QuickEncrypt-Raw.html"
+  },
+  {
+  "title": "CSV to JSON",
+  "destination_url":"https://peterjkingston.github.io/CSV_to_JSON.html",
+  "resource_url": "https://raw.githubusercontent.com/peterjkingston/peterjkingston.github.io/master/CSV_to_JSON-Raw.html"
   }
 ]
