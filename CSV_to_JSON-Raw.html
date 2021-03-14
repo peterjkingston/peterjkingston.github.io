@@ -35,25 +35,27 @@
     <h1>CSV_to_JSON</h1>
     <h5 id="about-header"></h5>
     <script>
-        function getJSONObj(apiurl)
+        async function getJSONObj(apiurl, jsonMemberName, toEle)
         {
-            let requestURL = apiurl;
-            let request = new XMLHttpRequest();
-            request.open('GET', requestURL);
-            request.responseType = 'json';
-            request.send();
-
-            request.onload = function () 
-            {
-                const jsonObj = request.response;
-                var strJson = atob(jsonObj.content);
-                return JSON.parse(strJson);
-            }
+            toEle.innerHTML = await fetch(apiurl)
+                .then(response => response.json())
+                .then(j=>j[jsonMemberName])
+                .then(s=>fixGithubML(s));
         }
 
-        const aboutStr = getJSONObj('https://api.github.com/repos/peterjkingston/CSV_to_JSON').description;
+        function fixGithubML(githubMarkup)
+        {
+            const markupDictionary = {":key:":"'&#12873;"};
+            const keys = Object.keys(markupDictionary);
+            for(i = 0; i < keys.length; i++){
+                githubMarkup = githubMarkup.replace(keys[i],markupDictionary[keys[i]]);
+            }
+            return githubMarkup;
+        }
+        
         let aboutEle = document.querySelector("#about-header");
-        aboutEle.innerHTML = aboutStr;
+        getJSONObj('https://api.github.com/repos/peterjkingston/CSV_to_JSON',"description",aboutEle);
+        
     </script>
     <section id="downloads">
         <a href="https://github.com/peterjkingston/CSV_to_JSON" class="btn btn-github"
