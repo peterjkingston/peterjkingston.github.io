@@ -71,7 +71,7 @@
             document.querySelector("#project-title").innerHTML = jRepo.name;
             document.querySelector("#about-header").innerHTML = jRepo.description;
 
-            const jIssues = await getJSONObj(jRepo.issues_url);
+            const jIssues = await getJSONObj(jRepo.issues_url.split("{")[0]);
             var tbl = CreateTable(['Ticket', 'Title', 'Description', 'Last Update']);
             FillIssues(tbl, jIssues);
             
