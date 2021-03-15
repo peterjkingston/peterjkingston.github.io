@@ -110,8 +110,8 @@
     requestPWP.send();
 
     requestPWP.onload = function(){
-        pwpDomEle = document.createElement("html");
-        pwpDomEle.innerHTML= requestPWP.responseText;
+        pwpDomEle = document.createElement("span");
+        pwpDomEle.innerHTML = requestPWP.responseText;
         footer.innerHTML = pwpDomEle.querySelector('footer').innerHTML;
     }
 
