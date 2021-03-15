@@ -69,7 +69,7 @@
             const jRepo = await getJSONObj('https://api.github.com/repos/peterjkingston/' + project);
             
             document.querySelector("#project-title").innerHTML = jRepo.name;
-            document.querySelector("#about-header").innerHTML = fixGitHubML(jRepo.description);
+            document.querySelector("#about-header").innerHTML = fixGithubML(jRepo.description);
 
             const jIssues = await getJSONObj(jRepo.issues_url.split("{")[0]);
             var tbl = CreateTable(['Ticket', 'Title', 'Description', 'Last Update']);
