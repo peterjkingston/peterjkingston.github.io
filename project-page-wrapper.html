@@ -110,9 +110,9 @@
     requestPWP.send();
 
     requestPWP.onload = function(){
-        pwpDom = new Document();
-        pwpDom.append(requestPWP.responseText);
-        footer.innerHTML = pwpDom.querySelector('footer').innerHTML;
+        pwpDomEle = document.createElement("html");
+        pwpDomEle.innerHTML= requestPWP.responseText;
+        footer.innerHTML = pwpDomEle.querySelector('footer').innerHTML;
     }
 
   </script>
