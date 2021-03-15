@@ -111,7 +111,7 @@
 
     requestPWP.onload = function(){
         pwpDom = new Document();
-        pwpDom.append(append(requestPWP.responseText));
+        pwpDom.append(requestPWP.responseText);
         footer.innerHTML = pwpDom.querySelector('footer').innerHTML;
     }
 
