@@ -85,36 +85,7 @@
   <div id="main_content">
 
   </div>
-  <script>
-    const project = new URL(document.location).searchParams.get('name');
-    document.querySelector("title").innerHTML=project;
-    const readingPane = document.querySelector("#main_content");
-    const footer = document.querySelector("footer");
-
-    //INSERT AJAX HERE
-    let requestURL = "https://peterjkingston.github.io/project-page-raw.html";
-    let request = new XMLHttpRequest();
-    request.open('GET', requestURL);
-    request.send();
-
-    request.onload = function(){
-      readingPane.innerHTML = request.responseText;
-      let scriptEle = document.querySelector("#init-script");
-      eval(scriptEle.innerHTML);
-    }
-
-    const personalWebPage = "https://www.peterjkingston.com";
-    let requestPWP = new XMLHttpRequest();
-    requestPWP.open('GET', personalWebPage);
-    requestPWP.send();
-
-    requestPWP.onload = function(){
-        pwpDomEle = document.createElement("span");
-        pwpDomEle.innerHTML = requestPWP.responseText;
-        footer.innerHTML = pwpDomEle.querySelector('footer').innerHTML;
-    }
-
-  </script>
+  
   <footer class="border-top footer text-muted bg-white">
     <div class="container">
       © 2020
@@ -161,6 +132,36 @@
   </footer>
   <script src="https://peterjkingston.github.io/lib/jquery/dist/jquery.min.js"></script>
   <script src="https://peterjkingston.github.io/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const project = new URL(document.location).searchParams.get('name');
+    document.querySelector("title").innerHTML=project;
+    const readingPane = document.querySelector("#main_content");
+    const footer = document.querySelector("footer");
+
+    //INSERT AJAX HERE
+    let requestURL = "https://peterjkingston.github.io/project-page-raw.html";
+    let request = new XMLHttpRequest();
+    request.open('GET', requestURL);
+    request.send();
+
+    request.onload = function(){
+      readingPane.innerHTML = request.responseText;
+      let scriptEle = document.querySelector("#init-script");
+      eval(scriptEle.innerHTML);
+    }
+
+    const personalWebPage = "https://www.peterjkingston.com";
+    let requestPWP = new XMLHttpRequest();
+    requestPWP.open('GET', personalWebPage);
+    requestPWP.send();
+
+    requestPWP.onload = function(){
+        pwpDomEle = document.createElement("span");
+        pwpDomEle.innerHTML = requestPWP.responseText;
+        footer.innerHTML = pwpDomEle.querySelector('footer').innerHTML;
+    }
+
+  </script>
 </body>
 
 </html>
