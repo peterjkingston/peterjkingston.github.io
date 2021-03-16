@@ -71,9 +71,18 @@
             document.querySelector("#project-title").innerHTML = jRepo.name;
             document.querySelector("#about-header").innerHTML = fixGithubML(jRepo.description);
 
-            const jIssues = await getJSONObj(jRepo.issues_url.split("{")[0]);
-            var tbl = CreateTable(['Ticket', 'Title', 'Description', 'Last Update']);
-            FillIssues(tbl, jIssues);
+            if(jRepo.open_issues_count > 0)
+            {
+                const jIssues = await getJSONObj(jRepo.issues_url.split("{")[0]);
+                var tbl = CreateTable(['Ticket', 'Title', 'Description', 'Last Update']);
+                FillIssues(tbl, jIssues);
+            }
+            else
+            {
+                const knownIssues = document.querySelector("#known-issues");
+                document.removeChild(knownIssues);
+            }
+            
         }
 
         async function getJSONObj(apiurl)
