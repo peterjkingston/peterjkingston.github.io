@@ -35,7 +35,7 @@
     <h1 id="project-title"></h1>
     <h5 id="about-header"></h5>
     <section id="downloads">
-        <a href="https://github.com/peterjkingston/CSV_to_JSON" class="btn btn-github" style="background: -webkit-linear-gradient(top, rgba(40,40,40,0.3), rgba(35,35,35,0.3) 50%, rgba(10,10,10,0.3) 50%, rgba(0,0,0,0.3));border-radius: 50px !important;border-bottom: 2px solid rgba(0,0,0,0.7);border-top: 2px solid #000;color: rgba(255,255,255) !important;font-family: Helvetica, Arial, sans-serif;font-weight: bold !important;font-size: 20px !important;text-decoration: none;text-shadow: 0 -1px 0 rgba(0,0,0,0.75);box-shadow: 1px 10px 0 rgba(255,255,255,0.05);text-align: center;vertical-align: middle;user-select: none;border: 1px solid transparent !important;padding: .375rem .75rem !important;line-height: 1.5;">
+        <a id="github-view-link" class="btn btn-github" style="background: -webkit-linear-gradient(top, rgba(40,40,40,0.3), rgba(35,35,35,0.3) 50%, rgba(10,10,10,0.3) 50%, rgba(0,0,0,0.3));border-radius: 50px !important;border-bottom: 2px solid rgba(0,0,0,0.7);border-top: 2px solid #000;color: rgba(255,255,255) !important;font-family: Helvetica, Arial, sans-serif;font-weight: bold !important;font-size: 20px !important;text-decoration: none;text-shadow: 0 -1px 0 rgba(0,0,0,0.75);box-shadow: 1px 10px 0 rgba(255,255,255,0.05);text-align: center;vertical-align: middle;user-select: none;border: 1px solid transparent !important;padding: .375rem .75rem !important;line-height: 1.5;">
             <span class="icon" style="background: url(&quot;https://github.com/peterjkingston/peterjkingston.github.io/raw/master/images/blacktocat.png&quot;) 0px 0px no-repeat;display: inline-block;width: 16px;height: 15px;margin-top: 10px;border-top-width: 10‒;"></span>
             View on GitHub
         </a>
@@ -68,9 +68,16 @@
             const project = (new URL(document.location)).searchParams.get('name');
             const jRepo = await getJSONObj('https://api.github.com/repos/peterjkingston/' + project);
             
+            //Title
             document.querySelector("#project-title").innerHTML = jRepo.name;
+
+            //Description
             document.querySelector("#about-header").innerHTML = fixGithubML(jRepo.description);
 
+            //View on Github
+            document.querySelector("#github-view-link").setAttribute("href", jRepo.html_url)
+
+            //Known Issues
             if(jRepo.open_issues_count > 0)
             {
                 const jIssues = await getJSONObj(jRepo.issues_url.split("{")[0]);
