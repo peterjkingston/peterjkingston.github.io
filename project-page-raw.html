@@ -42,6 +42,8 @@
     </section>
 </div>
 
+<div id="readme-content" class="container"></div>
+
 <div class="container">
     <section id="main_content">
 
@@ -66,7 +68,8 @@
 
         async function initializePage(){
             const project = (new URL(document.location)).searchParams.get('name');
-            const jRepo = await getJSONObj('https://api.github.com/repos/peterjkingston/' + project);
+            let jRepo = await getJSONObj('https://api.github.com/repos/peterjkingston/' + project);
+            jRepo = await getReadMe("https://raw.githubusercontent.com/peterjkingston/" + project +"/master/README.md", jRepo)
             
             //Title
             document.querySelector("#project-title").innerHTML = jRepo.name;
@@ -75,8 +78,11 @@
             document.querySelector("#about-header").innerHTML = fixGithubML(jRepo.description);
 
             //View on Github
-            document.querySelector("#github-view-link").setAttribute("href", jRepo.html_url)
+            document.querySelector("#github-view-link").setAttribute("href", jRepo.html_url);
             
+            //README.md Content
+            document.querySelector("#readme-content").innerHTML= fixGithubML(jRepo.readme-content);
+
             //Known Issues
             if(jRepo.open_issues_count > 0)
             {
@@ -108,6 +114,20 @@
             return githubMarkup;
         }
 
+        async function getReadMe(readme_url, repoObj)
+        {
+            htmlBody = await fetch(readme_url).then(response => response);
+            if(htmlBody != null)
+            {
+                projectTitle = htmlBody.querySelector("#project-title");
+                repoObj.name =projectTitle != null? projectTitle.innerHTML: repoObj.name;
+                htmlBody.removeChild(projectTitle);
+                repoObj.readme_content = htmlBody.innerHTML;
+            }
+            
+            return repoObj;
+        }
+
         function CreateTable(columns) {
             var table = document.createElement('table');
             let tblContainer = document.querySelector("#github_table_container");
@@ -128,7 +148,7 @@
             for (var i = 0; i < jsonObj.length; i++) {
                 var issue = jsonObj[i];
                 if (issue.state === 'open') {
-                    if (contains(issue.title, ':')) {
+                    if (issue.title.includes(":")) {
 
                         var row = document.createElement('tr');
                         table.appendChild(row);
