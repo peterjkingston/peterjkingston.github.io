@@ -116,14 +116,21 @@
 
         async function getReadMe(readme_url, repoObj)
         {
-            let htmlBody = await fetch(readme_url).then(response => response.text());
-            if(htmlBody != null)
+            try
             {
-                let body = document.createElement("template");
-                body.innerHTML = htmlBody;
-                let projectTitle = body.parentNode.querySelector("#project-title");
-                repoObj.name =projectTitle != null? projectTitle.innerHTML: repoObj.name;
-                repoObj.readme_content = body.innerHTML;
+                let htmlBody = await fetch(readme_url).then(response => response.text());
+                if(htmlBody != null)
+                {
+                    let body = document.createElement("template");
+                    body.innerHTML = htmlBody;
+                    let projectTitle = body.parentNode.querySelector("#project-title");
+                    repoObj.name =projectTitle != null? projectTitle.innerHTML: repoObj.name;
+                    repoObj.readme_content = body.innerHTML;
+                }
+            }
+            catch(exception)
+            {
+
             }
             
             return repoObj;
