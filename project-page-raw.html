@@ -81,7 +81,7 @@
             document.querySelector("#github-view-link").setAttribute("href", jRepo.html_url);
             
             //README.md Content
-            document.querySelector("#readme-content").innerHTML= fixGithubML(jRepo.readme-content);
+            document.querySelector("#readme-content").innerHTML= fixGithubML(jRepo.readme_content);
 
             //Known Issues
             if(jRepo.open_issues_count > 0)
