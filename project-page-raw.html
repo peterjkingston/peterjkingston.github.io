@@ -124,7 +124,7 @@
                 {
                     let body = document.createElement("template");
                     body.innerHTML = htmlBody;
-                    let projectTitle = body.parentNode.querySelector("#project-title");
+                    let projectTitle = body.children[0].parentNode.querySelector("#project-title");
                     result = 
                     {
                         "name": projectTitle != null? projectTitle.innerHTML: repoObj.name,
