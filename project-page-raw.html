@@ -121,7 +121,7 @@
             {
                 let body = document.createElement("template");
                 body.innerHTML = htmlBody;
-                let projectTitle = document.querySelector("#project-title");
+                let projectTitle = body.parentNode.querySelector("#project-title");
                 repoObj.name =projectTitle != null? projectTitle.innerHTML: repoObj.name;
                 repoObj.readme_content = body.innerHTML;
             }
